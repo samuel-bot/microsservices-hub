@@ -52,6 +52,7 @@ public class PagamentoService {
         try {
             Pagamento entity = repository.getReferenceById(id);
             copyDtoToEntity(dto, entity);
+            entity.setStatus(dto.getStatus());
             entity = repository.save(entity);
             return new PagamentoDTO(entity);
         } catch (EntityNotFoundException ex) {
