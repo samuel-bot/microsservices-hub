@@ -3,6 +3,7 @@ package com.github.samuel_bot.ms_pagamento.service;
 
 import com.github.samuel_bot.ms_pagamento.dto.PagamentoDTO;
 import com.github.samuel_bot.ms_pagamento.entity.Pagamento;
+import com.github.samuel_bot.ms_pagamento.entity.Status;
 import com.github.samuel_bot.ms_pagamento.repository.PagamentoRepository;
 import com.github.samuel_bot.ms_pagamento.service.exceptions.DatabaseException;
 import com.github.samuel_bot.ms_pagamento.service.exceptions.ResourceNotFoundException;
@@ -41,6 +42,7 @@ public class PagamentoService {
     public PagamentoDTO create(PagamentoDTO dto) {
         Pagamento entity = new Pagamento();
         copyDtoToEntity(dto, entity);
+        entity.setStatus(Status.CRIADO);
         entity = repository.save(entity);
         return new PagamentoDTO(entity);
     }
