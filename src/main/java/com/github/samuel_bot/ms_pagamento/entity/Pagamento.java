@@ -30,15 +30,16 @@ public class Pagamento {
     private Long id;
     @Column(nullable = false)
     private BigDecimal valor;
-    private String name;
-    private String validation;
-    private String codeOfSecurity;
+    private String nome;
+    private String numeroDoCartao;
+    private String validade;
+    private String codigoDoCartao;
     @Column(nullable = false)
     @Enumerated(value = EnumType.STRING)
     private Status status;
     @Column(nullable = false)
-    private Long orderId;
+    private Long pedidoId;
     @Column(nullable = false)
-    private Long formOfPay;
+    private Long formaDePagamento;
 
 }
